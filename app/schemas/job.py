@@ -8,12 +8,14 @@ class JobCreate(BaseModel):
     task_name: str
     payload: Dict[str, Any] = {}
     priority: JobPriority = JobPriority.MEDIUM
+    execute_at: Optional[datetime] = None
 
 class JobResponse(BaseModel):
     id: UUID
     task_name: str
     status: JobStatus
     priority: JobPriority
+    execute_at: Optional[datetime] = None
     created_at: datetime
     
     # We allow returning ORM models directly
